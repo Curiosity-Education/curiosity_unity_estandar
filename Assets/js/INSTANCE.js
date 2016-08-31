@@ -14,10 +14,18 @@
 	private var z:int;
 	private var clip:AnimationClip;
 	private var animacion:Animation;
+	var cs;
+function Awake(){
+	var camera = GameObject.Find("Main Camera");
+	Debug.Log(camera.transform.position);
+	cs = camera.GetComponent("Juego");
+	 
+
+}
 function Start () {
-		Application.ExternalCall("$juego.game.start",60,false); 
-		var baraja = Instantiate (preBaraja,new Vector3 (0.22f,0.45f, 0f),Quaternion.identity) as GameObject;
+		var baraja = Instantiate (preBaraja,new Vector3 (0f,1f, 0f),Quaternion.identity) as GameObject;
 		baraja.name = "baraja";
+		baraja.GetComponent(SpriteRenderer).sortingOrder=1;
 		var n = Random.Range (0,3);
 		baraja.tag =etiquetas[n];
 		var figura_hijo = Instantiate (figuras_baraja [n]) as GameObject;
@@ -64,9 +72,10 @@ function Start () {
 	    clip =  AnimationClip();
 		var baraja_find = GameObject.Find ("baraja");
 		if (baraja_find.tag == GameObject.FindGameObjectWithTag (etiquetas [index]).tag) {
-			Application.ExternalCall ("$juego.game.setCorrecto");
+			
 			Destroy (baraja_find);
-			var baraja = Instantiate (preBaraja, new Vector3 (0.22f, 0.45f, 0f), Quaternion.identity);
+			var baraja = Instantiate (preBaraja, new Vector3 (0f, 1f, 0f), Quaternion.identity);
+			baraja.GetComponent(SpriteRenderer).sortingOrder=1;
 			baraja.name = "baraja";
 			var n = Random.Range (0, 3);
 			baraja.tag = etiquetas [n];
@@ -92,7 +101,8 @@ function Start () {
 			Destroy (correcto, 1.5f);
 
 		} else {
-			Application.ExternalCall ("$juego.game.setError",50);
+		
+		//	GameObject.Find("Main Camera").GetComponent("juego").setError(50);
 			var incorrecto = Instantiate (preIncorrecto,  Vector3 (0f, 0f, 0f), transform.rotation);
 			incorrecto.transform.localScale =  Vector3 (0.2f, 0.2f, 0f);
 			incorrecto.GetComponent (SpriteRenderer).sortingOrder = 3;

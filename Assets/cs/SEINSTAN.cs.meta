@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ec24c514b55698d409a4282d1e227c8d
+timeCreated: 1468477776
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - preBaraja: {fileID: 187342, guid: 08f90b92bb4f0494bb4b84c2f031918d, type: 2}
+  - preOpcion: {fileID: 119978, guid: d1d93c73ddcdff64c910dec7aca4b194, type: 2}
+  - preCorrecto: {fileID: 131586, guid: bf65f0b825c35ff43b3115172ba0a537, type: 2}
+  - preIncorrecto: {fileID: 110470, guid: 6862f881620b575478bf87d122a46a70, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
